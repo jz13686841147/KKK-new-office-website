@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上海咔酷咔新能源</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/amazeui.css"/>
+    <link rel="shortcut icon" href="img/kakuka_1.ico" type="iimg/kakuka"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+
+        #page_navigation a{
+            padding:10px;
+            border:1px solid #ddd;
+            margin:2px;
+            color:black;
+            text-decoration:none
+        }
+
+        .active_page{
+            /*background:#ddd;*/
+            /*color:white !important;*/
+            border:1px solid #000 !important;
+        }
+    </style>
+
+</head>
+<body>
+<header class=" header">
+    <div class="am-container-1">
+        <div class="left hw-logo">
+            <img id="logo" class="logo" src="img/logo_white.png">
+            <!--<img class=" logo" src="img/HENGWANG.png"></img>-->
+            <!--<img class="word" src="img/hw-word.png"></img>-->
+        </div>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+                data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+                class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse right" id="doc-topbar-collapse">
+            <div class=" am-topbar-left am-form-inline am-topbar-right" role="search">
+                <ul class="am-nav am-nav-pills am-topbar-nav hw-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="menu-active">
+                        <div class="am-dropdown">
+                            <a href="product-show.html" class=" am-dropdown-toggle">产品介绍</a>
+                            <!--<ul class="am-dropdown-content">-->
+                            <!--<li><a href="product-details1.html">智能交流壁挂式</a></li>-->
+                            <!--<li><a href="product-details2.html">智能交流落地式</a></li>-->
+                            <!--<li><a href="product-details3.html">智能便携式充电机</a></li>-->
+                            <!--<li><a href="product-details4.html">智能直流充电机</a></li>-->
+                            <!--</ul>-->
+                        </div>
+                    </li>
+                    <li class="menu-active">
+                        <div class="am-dropdown">
+                            <a href="solutions.html" class=" am-dropdown-toggle">解决方案</a>
+                            <!--<ul class="am-dropdown-content">-->
+                            <!--<li><a href="solutions.html#solutions-1">物流园运营</a></li>-->
+                            <!--<li><a href="solutions.html#solutions-2">交通系统</a></li>-->
+                            <!--<li><a href="solutions.html#solutions-3">停车场配套</a></li>-->
+                            <!--<li><a href="solutions.html#solutions-4">新能源汽车配套</a></li>-->
+                            <!--<li><a href="solutions.html#solutions-5">城市级解决方案</a></li>-->
+                            <!--</ul>-->
+                        </div>
+                    </li>
+                    <li><a href="recruit.html">招贤纳士 </a></li>
+                    <li class="hw-menu-active"><a href="about-us.html">关于我们</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<script>
+    (function(){
+        pos = 0;
+        ticking = false;
+        var header = document.querySelector(".header");
+        window.addEventListener("scroll", function(e){
+            pos = window.scrollY;
+
+            if(pos > 100&&!ticking){
+                header.classList.add("scrolledDown");
+//                logo.src = "img/logo_normal.png";
+                $("#logo").attr("src", "img/logo_normal.png");
+                ticking = true;
+            }
+            if(pos < 100 && ticking){
+                header.classList.remove("scrolledDown");
+//                logo.src = "img/logo_white.png";
+                $("#logo").attr("src", "img/logo_white.png");
+                ticking = false;
+            }
+        });
+    })();
+</script>
+<div class="rollpic">
+    <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
+        <ul class="am-slides">
+            <li><img class="item"/></li>
+            <!--<li><img class="item"/></li>-->
+            <!--<li><img class="item"/></li>-->
+
+            <!--<li><img class="item"/></li>-->
+        </ul>
+    </div>
+</div>
+<script>
+    function getElementsByClassName(n) {
+        var classElements = [], allElements = document.getElementsByTagName('*');
+        for (var i = 0; i < allElements.length; i++) {
+            if (allElements[i].className == n) {
+                classElements[classElements.length] = allElements[i];
+            }
+        }
+        return classElements;
+    }
+    function init() {
+        // 获取屏幕高度
+        var windowHeight = $(window).height();
+        var redClassElements = getElementsByClassName('item');
+        for (var i = 0; i < redClassElements.length; i++) {
+//            redClassElements[i].style.height = windowHeight - 80 + "px";
+            redClassElements[i].style.height = auto ;
+        }
+//        var a=document.getElementsByClassName("item");
+////        a.style.width="100%";
+//
+//        a.style.height=
+//        console.log(windowHeight)
+    }
+    window.onload = init;
+    $(function () {
+        var ItemClass = getElementsByClassName('item');
+
+        /**
+         * 根据屏幕宽度的变化决定轮播图片应该展示什么 5    */
+        function resize() {
+            // 获取屏幕宽度
+            var windowWidth = $(window).width();
+            // 判断屏幕属于大还是小
+            var isSmallScreen = windowWidth < 768;
+            // 根据大小为界面上的每一张轮播图设置背景
+            for (var i = 0; i < ItemClass.length; i++) {
+                if (isSmallScreen) {
+//                        console.log(ItemClass[i].css())
+                    ItemClass[i].src = "img/banner_news.jpg";
+                } else {
+                    ItemClass[i].src = "img/banner_news.jpg";
+                }
+            }
+//                $('.rollpic > .am-slides > .item').each(function (i, item) {
+//                    var $item = $(item);
+//                    // var imgSrc = $item.data(isSmallScreen ? 'image-xs' : 'image-lg');
+//                    var imgSrc =
+//                        isSmallScreen ? $item.data('image-xs') : $item.data('image-lg');
+//                    // 设置背景图片
+//                    $item.css('backgroundImage', 'url("' + imgSrc + '")');
+//                    //
+//                    // 因为我们需要小图时 尺寸等比例变化，所以小图时我们使用img方式
+//                    if (isSmallScreen) {
+//                        $item.html('<img src="' + imgSrc + '" alt="" />');
+//                    } else {
+//                        $item.empty();
+//                    }
+//                });
+        }
+
+        // // 让window对象立即触发一下resize，初始化div的背景图
+        // $(window).trigger('resize');
+        $(window).on('resize', resize).trigger('resize');
+    });
+</script>
+
+<!--新闻详情-->
+<div class="news-details news-all">
+    <div class="am-container-1 mb-20">
+        <div class="news part-all">
+            <div class="part-title">
+                <a style="color: #000;" name="product-1">
+                    <span class="news-title-span">2017中国智慧停车产业联盟年会</span>
+                    <p>日期：2017-04-07</p>
+                </a>
+            </div>
+            <div class="news-content company news-details-company">
+
+                <p>2017年3月1日上海咔酷咔新能源科技有限公司董事长刘波先生和总经理秦亚浪先生受邀参加了在北京举办的中国智慧停车产业联盟年会暨中国卫星导航定位协会智慧停车专业委员会启动仪式。</p>
+                <img src="img/news/1-1F314113330J0.jpg" >
+                <p style="text-align: center">图1.中国智慧停车产业联盟理事长关锐捷致大会开幕词</p>
+                <img src="img/news/1-1F314132639526.jpg" >
+                <p style="text-align: center">图2.中国卫星导航定位协会张荣久会长讲话</p>
+                <p>中国智慧停车产业联盟(以下简称联盟)，是为了贯彻落实国家一系列战略部署，有效破解国内外普遍存在的“停车难”，由国际绿色经济协会、中国卫星导航定位协会、中国矿业联合会、中国设备管理协会(起重机械发展中心)、中国工程机械工业协会(标准化工作委员会)、中国投资协会(静态交通发展中心)等社团组织，联合数百家企业精英发起并组建的，联合国开发计划署、亚洲开发银行等国际组织和机构给予鼎力支持。</p>
+                <p> 应邀出席本次年会的既有中央国家有关部委及研究部门的专家，也有中国联通、中建交通、中建钢构、国机集团、北建工集团、千方科技、启迪国际、民生银行等大型企业特邀代表，更有停车数据管理、卫星导航定位、停车设备建造、停车设施建设、充电桩设施、房地产及物业、金融保险机构、相关社会团体和知名宣传媒体等行业精英。</p>
+                <img src="https://ww1.sinaimg.cn/large/006JbmE8gy1fifld6es23j30zk0qo420.jpg" >
+                <p style="text-align: center">图3.大会部分专家合影留念（第二排左起三为上海咔酷咔新能源科技有限公司总经理秦亚浪</p>
+                <p>随着电动及混合汽车逐渐的普及，2017年2月国务院印发《“十三五”国家战略性新兴产业发展规划》，要求把战略性新兴产业摆在经济社会发展更加突出位置，大力构建现代产业新体系，推动经济社会持续健康发展。大幅提升新能源汽车和新能源的应用比例，推动新能源汽车、新能源等成为支柱产业。</p>
+                <p>为实现这一目标，《规划》也做了相关安排，形成适应新能源汽车发展的制度环境。对于新能源汽车发展，上海咔酷咔新能源科技有限公司总经理秦亚浪提出，我们将持续更新智能化停车设施技术，为智能充电提供对应的解决方案。</p>
+                <p>国家最新规定，新建立体车库必须按照一定比例配建充电设施，针对目前国内立体车库充电桩建设不规范，施工难度大、成本高、存在机械和电气安全隐患问题，上海咔酷咔新能源科技有限公司采用独家专利技术，将充电桩布置、安装和控制融入立体车库的设计和使用过程中，结合独家专利柔性电气连接设备和集中式充电控制系统，为终端客户提供停车、充电、取车一体化智能服务。</p>
+                <p> 针对在停车场大规模布置充电桩后存在的占用空间、停车倒车不方便、剐蹭现象严重等问题，提供停车场卷鼓式充电解决方案。秦总还提出我们将运用自己的专业研发技术积极配合行业权威机构、政府制定例如《电动汽车充电基础设施指南》和《充电基础设施建设指导意见》等相关标准。 积极推进国务院印发的《中国制造2025》中大力发展电动汽车、燃料电池汽车计划。</p>
+                <p>建设电动汽车充电基础设施，是发展新能源汽车产业的重要保障。加快城市停车场建设，是完善城市功能、便利群众生活的迫切需要。年会上，政府代表、嘉宾与企业家们达成共识，将尽快部署加快电动汽车充电基础设施和城市停车场建设,补公共服务短板,促内需惠民生。</p>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--联系我们-->
+<div class="am-container-1">
+    <div class="part-title">
+        <a name="about-5">
+            <span class="part-title-span">联系我们</span>
+            <p>Contact Us</p>
+        </a>
+    </div>
+    <div class="solutions part-all Contact">
+        <ul class="am-g part-content solutions-content">
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_position.png" alt="">
+                </div>
+                <div class="solution-word first-solution-word">
+                    <span class="">公司地址</span>
+                    <p class="us-way">上海市杨浦区国权北路湾谷科技园B7号楼</p>
+                </div>
+            </li>
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_email.png" alt="">
+                </div>
+                <div class="solution-word">
+                    <span class="">公司邮箱</span>
+                    <p class="us-way">info@kakuka.com.cn</p>
+                </div>
+            </li>
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_call.png" alt="">
+                </div>
+                <div class="solution-word solution-word-three">
+                    <span class="">公司电话</span>
+                    <p class="us-way">021-6048 3977</p>
+                </div>
+            </li>
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_code.png" alt="">
+                </div>
+                <div class="solution-word">
+                    <span class="">公司邮编</span>
+                    <p class="us-way">200434</p>
+                </div>
+            </li>
+        </ul>
+        <div class="contact-footer">
+            <div class="contact-footer-first">
+                <span><i></i>第一时间接听您的来电<i></i></span>
+
+            </div>
+            <p class="">认真、耐心、专业的咔酷咔团队为您解决问题！</p>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="am-container-1">
+        <ul class="am-fl am-u-lg-6 am-u-md-12 am-u-sm-12">
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div class="part-5-title">产品介绍</div>
+                <div class="part-5-words2">
+                    <span><a href="product-details1.html">智能交流壁挂式</a></span>
+                    <span><a href="product-details2.html">智能交流落地式</a></span>
+                    <span><a href="product-details3.html">智能便携式充电机</a></span>
+                    <span><a href="product-details4.html">智能直流充电桩</a></span>
+                    <span><a href="product-show.html#product-1">无线充电</a></span>
+                    <span><a href="product-show.html#product-2">云平台</a></span>
+                </div>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div class="part-5-title">解决方案</div>
+                <div class="part-5-words2">
+                    <span><a href="solutions.html#solutions-1">物流园运营</a></span>
+                    <span><a href="solutions.html#solutions-2">交通系统</a></span>
+                    <span><a href="solutions.html#solutions-3">停车场配套</a></span>
+                    <span><a href="solutions.html#solutions-4">新能源汽车配套</a></span>
+                    <span><a href="solutions.html#solutions-5">城市级解决方案</a></span>
+                    <span><a href="solutions.html#solutions-6">立体车库智能充电</a></span>
+                </div>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div class="part-5-title">关于我们</div>
+                <div class="part-5-words2">
+                    <span><a href="about-us.html#about-1">公司介绍</a></span>
+                    <!--<span><a href="about-us.html#about-2">发展历程</a></span>-->
+                    <span><a href="about-us.html#about-3">公司动态</a></span>
+                    <!--<span><a href="about-us.html#about-4">团队介绍</a></span>-->
+                    <span><a href="about-us.html#about-5">联系方式</a></span>
+                </div>
+            </li>
+        </ul>
+        <ul class="erweima am-fr am-u-lg-6 am-u-md-12 am-u-sm-12">
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div>
+                    <img src="img/zhifubao.jpg" alt="">
+                </div>
+                <span class="erweima-title">支付宝小程序</span>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div>
+                    <img src="img/weixin.jpg" alt="">
+                </div>
+                <span class="erweima-title">微信公众号</span>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div>
+                    <img src="img/xiaochengxu.jpg" alt="">
+                </div>
+                <span class="erweima-title">微信小程序</span>
+            </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="footer-f">Copright © 2016-2018 咔酷咔新能源 - 版权所有 沪ICP备16030588号</div>
+    </div>
+</footer>
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+    <a href="#top" title="" style="color: #000;">
+        <!--<i class="am-gotop-icon am-icon-arrow-circle-up"></i>-->
+        <!--<img class="am-gotop-icon-custom" src="img/top.png" />-->
+        <div class="am-gotop-icon-custom">
+            <div></div>
+        </div>
+        <p>回到顶部</p>
+    </a>
+</div>
+</body>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/scroll.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>

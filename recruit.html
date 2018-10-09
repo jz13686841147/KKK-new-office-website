@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上海咔酷咔新能源</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/amazeui.css"/>
+    <link rel="shortcut icon" href="img/kakuka_1.ico" type="iimg/kakuka"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+
+        #page_navigation a{
+            padding:6px 5px 7px 5px;
+            border:1px solid #ddd;
+            color:black;
+            text-decoration:none
+        }
+        #page_navigation .previous_link {
+            margin-right: 20px;
+        }
+        #page_navigation>.page_link {
+            padding:6.5px 12px;
+            margin-right: 20px;
+        }
+        .active_page{
+            /*background:#ddd;*/
+            color:white !important;
+            background: #2d8edd !important;
+        }
+    </style>
+
+</head>
+<body>
+<header class=" header">
+    <div class="am-container-1">
+        <div class="left hw-logo">
+            <img id="logo" class="logo" src="img/logo_white.png">
+            <!--<img class=" logo" src="img/HENGWANG.png"></img>-->
+            <!--<img class="word" src="img/hw-word.png"></img>-->
+        </div>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+                data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+                class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse right" id="doc-topbar-collapse">
+            <div class=" am-topbar-left am-form-inline am-topbar-right" role="search">
+                <ul class="am-nav am-nav-pills am-topbar-nav hw-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="menu-active">
+                        <div class="am-dropdown">
+                            <a href="product-show.html" class=" am-dropdown-toggle">产品介绍</a>
+                            <!--<ul class="am-dropdown-content">-->
+                                <!--<li><a href="product-details1.html">智能交流壁挂式</a></li>-->
+                                <!--<li><a href="product-details2.html">智能交流落地式</a></li>-->
+                                <!--<li><a href="product-details3.html">智能便携式充电机</a></li>-->
+                                <!--<li><a href="product-details4.html">智能直流充电机</a></li>-->
+                            <!--</ul>-->
+                        </div>
+                    </li>
+                    <li class="menu-active">
+                        <div class="am-dropdown">
+                            <a href="solutions.html" class=" am-dropdown-toggle">解决方案</a>
+                            <!--<ul class="am-dropdown-content">-->
+                                <!--<li><a href="solutions.html#solutions-1">物流园运营</a></li>-->
+                                <!--<li><a href="solutions.html#solutions-2">交通系统</a></li>-->
+                                <!--<li><a href="solutions.html#solutions-3">停车场配套</a></li>-->
+                                <!--<li><a href="solutions.html#solutions-4">新能源汽车配套</a></li>-->
+                                <!--<li><a href="solutions.html#solutions-5">城市级解决方案</a></li>-->
+                            <!--</ul>-->
+                        </div>
+                    </li>
+                    <li class="hw-menu-active"><a href="recruit.html">招贤纳士 </a></li>
+                    <li><a href="about-us.html">关于我们</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<script>
+    (function(){
+        pos = 0;
+        ticking = false;
+        var header = document.querySelector(".header");
+        window.addEventListener("scroll", function(e){
+            pos = window.scrollY;
+
+            if(pos > 100&&!ticking){
+                header.classList.add("scrolledDown");
+//                logo.src = "img/logo_normal.png";
+                $("#logo").attr("src", "img/logo_normal.png");
+                ticking = true;
+            }
+            if(pos < 100 && ticking){
+                header.classList.remove("scrolledDown");
+//                logo.src = "img/logo_white.png";
+                $("#logo").attr("src", "img/logo_white.png");
+                ticking = false;
+            }
+        });
+    })();
+</script>
+<div class="rollpic">
+    <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
+        <ul class="am-slides">
+            <li><img class="item"/></li>
+            <!--<li><img class="item"/></li>-->
+            <!--<li><img class="item"/></li>-->
+
+            <!--<li><img class="item"/></li>-->
+        </ul>
+    </div>
+</div>
+<script>
+    function getElementsByClassName(n) {
+        var classElements = [], allElements = document.getElementsByTagName('*');
+        for (var i = 0; i < allElements.length; i++) {
+            if (allElements[i].className == n) {
+                classElements[classElements.length] = allElements[i];
+            }
+        }
+        return classElements;
+    }
+    function init() {
+        // 获取屏幕高度
+        var windowHeight = $(window).height();
+        var redClassElements = getElementsByClassName('item');
+        for (var i = 0; i < redClassElements.length; i++) {
+//            redClassElements[i].style.height = windowHeight - 80 + "px";
+            redClassElements[i].style.height = auto ;
+        }
+//        var a=document.getElementsByClassName("item");
+////        a.style.width="100%";
+//
+//        a.style.height=
+//        console.log(windowHeight)
+    }
+    window.onload = init;
+    $(function () {
+        var ItemClass = getElementsByClassName('item');
+
+        /**
+         * 根据屏幕宽度的变化决定轮播图片应该展示什么 5    */
+        function resize() {
+            // 获取屏幕宽度
+            var windowWidth = $(window).width();
+            // 判断屏幕属于大还是小
+            var isSmallScreen = windowWidth < 768;
+            // 根据大小为界面上的每一张轮播图设置背景
+            for (var i = 0; i < ItemClass.length; i++) {
+                if (isSmallScreen) {
+//                        console.log(ItemClass[i].css())
+                    ItemClass[i].src = "img/banner_joinus.jpg";
+                } else {
+                    ItemClass[i].src = "img/banner_joinus.jpg";
+                }
+            }
+//                $('.rollpic > .am-slides > .item').each(function (i, item) {
+//                    var $item = $(item);
+//                    // var imgSrc = $item.data(isSmallScreen ? 'image-xs' : 'image-lg');
+//                    var imgSrc =
+//                        isSmallScreen ? $item.data('image-xs') : $item.data('image-lg');
+//                    // 设置背景图片
+//                    $item.css('backgroundImage', 'url("' + imgSrc + '")');
+//                    //
+//                    // 因为我们需要小图时 尺寸等比例变化，所以小图时我们使用img方式
+//                    if (isSmallScreen) {
+//                        $item.html('<img src="' + imgSrc + '" alt="" />');
+//                    } else {
+//                        $item.empty();
+//                    }
+//                });
+        }
+
+        // // 让window对象立即触发一下resize，初始化div的背景图
+        // $(window).trigger('resize');
+        $(window).on('resize', resize).trigger('resize');
+    });
+</script>
+
+<!--新闻动态-->
+<div class=" news-all">
+    <div class="am-container-1">
+        <div class="news part-all">
+            <div class="part-title">
+                <a style="color: #000;">
+                    <span class="part-title-span">人才招聘</span>
+                    <p>Talent recruitment</p>
+                </a>
+            </div>
+            <div class="news-content recruit clear company-news">
+                <input type='hidden' id='current_page'/>
+                <input type='hidden' id='show_per_page'/>
+                <ul  id="content">
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">销售助理实习生</p>
+                        <p class="span-right">本科/经验不限/上海-杨浦区/薪资2K-4K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1.负责整理客户及所需资料。</p>
+                        <p>2.配合部门内客户经理，制作销售订单，合同，标书，并与财务对接。</p>
+                        <p>3.负责联络沟通客户的一些商务工作。</p>
+                        <p>4.协助部门经理完善部门规章制度和操作流程与规范，做好销售的后台支持</p>
+                        <p>5.相关的销售协议、合同等存档管理。</p>
+                        <P>6.签约客户销售进度及3S报号，业绩统计及相关资源分配。</P>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1.本科及以上学历。</p>
+                        <p>2.上海高校优先。</p>
+                        <p>3.专业不限。</p>
+                        <p>4.计算机运用熟练，有一定IT知识的优先入用。</p>
+                        <p>5.良好的语言表达及较强的沟通能力，工作认真细致，积极进取，善于学习与创新。</p>
+                    </li>
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">高级嵌入式软件工程师</p>
+                        <p class="span-right">硕士/3-5年经验/上海-杨浦区/薪资10K-15K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1.负责嵌入式系统方案的设计，处理器选型，平台搭建，方案设计等工作。</p>
+                        <p>2.基于硬件平台完成产品的控制算法，安全功能，通信功能的开发。</p>
+                        <p>3.协助相关应用软件的开发调试工作，积极的配合其它硬件工程师共同完成相关工作。</p>
+                        <p>4.负责产品软件设计、代码编写、系统调试，完成软件设计文档资料的编写以及相关生产资料的提交。</p>
+                        <p>5.负责量产产品及新产品的总体方案、器件选型、电路原理图设计、PCB Layout、打样、样板测试和调试，并对设计质量负责。</p>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1.5年及以上相关工作经验。</p>
+                        <p>2.硕士以上学历，电子、通信，计算机，机械电子相关专业，有汽车行业软硬件开发者经验者优先。</p>
+                        <p>3.精通C语言，有良好的编程习惯和层次化编程思想。</p>
+                        <p>4.熟悉STM32/ARM或TI DSP等平台开发，能快速完成USART、SPI、CAN、RS232、I2C、Ethernet、ADC，DAC等程序设计。</p>
+                        <p>5.有良好的任务划分思想，能实现复杂的任务调度。</p>
+                        <p>6.有良好的沟通能力和团队合作精神，具有一定的项目管理和团队管理能力。</p>
+
+                    </li>
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">高级电子工程师</p>
+                        <p class="span-right">硕士/5-10年经验/上海-杨浦区/薪资10K-15K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1.负责现有产品及新产品的总体方案、器件选型、电路原理图设计、PCB Layout、打样、样板测试和调试，并对设计质量负责。</p>
+                        <p>2.精通单片机（STM32、ARM等），能独立设计控制电路设计和程序编写；主要功能包括AD采集、串口通讯、Can通讯、网络通讯（GPRS和以太网）等。</p>
+                        <p>3.负责产品的技术方案设计，以及系统的需求分析和系统方案架构的设计和验证。</p>
+                        <p>4.制定产品各模块测试方案，完成软硬件调试及测试工作。</p>
+                        <p>5.负责编写产品硬件相关的设计文档、生产指导手册等。</p>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1.汽车、电子、电力、机电一体化、软件工程等相关专业，本科及以上学历； 5年以上电子产品、自动化仪器、设备的研发设计经历。</p>
+                        <p>2.精通C或C++语言，深入理解面向对象编程，熟悉MCU、ARM、DSP等主控芯片的硬件架构及底层外设开发，具有实战经验的嵌入式软硬件设计的开发人员。</p>
+                        <p>3.精通Schematic及PCB设计，至少熟练使用Orcad / Cadence / Pads/PROTEL/Altium Designer 中的一种，能够熟悉掌握4层PCB的layout，能独立设计复杂的系统电路。</p>
+                        <p>4.熟悉RS485、CAN、ZIGBEE、GPRS、MODBUS等通讯方式；以及锂电池充放电特性、BMS电池管理系统。</p>
+                        <p>5.熟悉EMC/EMI/ESD，能根据产品CE、FCC认证要求进行设计和整改。</p>
+                        <p>6.有一定英文基础，能够阅读英文资料,与客户进行技术交流。</p>
+                        <p>7.有较强的动手能力，具备硬件系统分析能力；熟练运用硬件开发工具及调试工具、深入理解整个硬件开发过程。</p>
+                        <p>8.责任心强、敬业，有团队协作精神，能承担较大工作压力。</p>
+                    </li>
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">硬件高级工程师</p>
+                        <p class="span-right">本科/3-5年经验/上海-杨浦区/薪资8K-16K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1.精通基本的数字、模拟电路原理，对电路、各类元件原理有深刻的理解以及常用仪器的使用。</p>
+                        <p>2.熟练硬件调试、数字模拟电路，熟悉常用电子元器件的用法和选型。</p>
+                        <p>3.熟练使用一种或多种电路绘图设计工具（Altium,PowerPCB、Cadence Allegro等），根据产品要求设计原理图及PCB布线和PCB布线标准规范。</p>
+                        <p>4.能设计多层高速数字电路的PCB，能对高速数字电路的布线做EMI/EMC仿真设计。</p>
+                        <p>5.熟悉ARM32位处理器，或其它嵌入式平台硬件开发。</p>
+                        <P>6.具有分析判断和解决问题的能力，有团队合作精神。</P>
+                        <p>7.熟练掌握嵌入式开发环境、操作系统的原理。</p>
+                        <p>8.熟悉C/C++等开发语言。</p>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1.重点院校本科以上学历，电子信息、通信、自动化等相关专业，3年及以上工作经验或本科5年以上工作经验。</p>
+                        <p>2.有丰富的项目管理经验和团队管理经验。</p>
+                        <p>3.有较好的沟通能力和清晰的思维逻辑能力。</p>
+                        <p>4.熟练使用示波器、频谱仪、逻辑分析仪等常用仪器。</p>
+                        <p>5.良好的英文听说读写能力。</p>
+                    </li>
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">嵌入式工程师</p>
+                        <p class="span-right">本科/1-3年经验/上海-杨浦区/薪资7K-13K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1.负责嵌入式系统方案的设计，处理器选型，平台搭建，方案设计等工作。</p>
+                        <p>2.负责公司产品硬件方面的研发设计。</p>
+                        <p>3.负责嵌入式软件的开发。</p>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1.计算机、电子、通信、自动化等相关专业。</p>
+                        <p>2.具备基本电子电路设计能力，动手能力较强，熟悉嵌入式硬件设计，具备嵌入式环境下驱动开发能力者优先。</p>
+                        <p>3.精通C语言编程，有良好的编程习惯和技巧及技术设计文档写作能力。</p>
+                        <p>4.熟悉ARM微控制器，对FreeRTOS、uCOSII或Linux或其它OS系统有一定的经验，或熟悉DSP处理器，有使用TI处理器完成数字信号处理及接口控制等工作经验，或熟悉FPGA开发，熟练掌握VHDL/Verilog语言，能够熟练使用FPGA开发工具。</p>
+                        <p>5.具有良好的沟通、协调能力和团队精神，能勤奋刻苦，踏实工作；能承受一定的工作压力。</p>
+                        <p>6.具有STM32开发经验者优先。</p>
+                        <p>7.熟悉USB、SPI、UART、IIC等通信协议，并有相关开发经验。</p>
+                        <p>8.有较强的独立解决问题的能力以及团队合作能力。</p>
+                    </li>
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">硬件专家（合伙人级别）</p>
+                        <p class="span-right">硕士/5-10年经验/上海-杨浦区/薪资20K-25K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1.精通基本的数字、模拟电路原理，对电路、各类元件原理有深刻的理解以及常用仪器的使用。</p>
+                        <p>2.熟练硬件调试、数字模拟电路，熟悉常用电子元器件的用法和选型。</p>
+                        <p>3.熟练使用一种或多种电路绘图设计工具（Altium,PowerPCB、Cadence Allegro等），根据产品要求设计原理图及PCB布线和PCB布线标准规范。</p>
+                        <p>4.能设计多层高速数字电路的PCB，能对高速数字电路的布线做EMI/EMC仿真设计。</p>
+                        <p>5.熟悉ARM32位处理器，或其它嵌入式平台硬件开发。</p>
+                        <P>6.具有分析判断和解决问题的能力，有团队合作精神。</P>
+                        <p>7.熟练掌握嵌入式开发环境、操作系统的原理。</p>
+                        <p>8.熟悉C/C++等开发语言。</p>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1.重点院校硕士以上学历，电子信息、通信、自动化等相关专业，5年及以上工作经验。</p>
+                        <p>2.有丰富的项目管理经验和团队管理经验。</p>
+                        <p>3.有较好的沟通能力和清晰的思维逻辑能力。</p>
+                        <p>4.熟练使用示波器、频谱仪、逻辑分析仪等常用仪器。</p>
+                        <p>5.良好的英文听说读写能力。</p>
+                    </li>
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">销售总监</p>
+                        <p class="span-right">本科/3-5年经验/上海-杨浦区/薪资8K-10K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1、负责公司营销部的全国充电桩安装工程管理及技术支持，熟悉桩、车、运营的工作方式和商业模式。</p>
+                        <p>2、负责全国充电桩销售的资源整合制定。</p>
+                        <p>3、熟悉了解各地市场最新信息及市场动态、各地市场规划。</p>
+                        <p>4、负责公司项目的营销、策划、销售管理、客户关系等营销工作。</p>
+                        <p>5、负责制定年度和季度市场推广策略并有效执行，制定销售政策，销售策略和实施方案并有效执行。</p>
+                        <P>6、负责市场调研、产品分析，对竞品进行研究与监控，并根据市场动态变化进行营销思路调整和创新。</P>
+                        <p>7、负责整合营销资源，指导、推进合作单位完成项目营销传播计划并组织实施。</p>
+                        <p>8、负责公关事件和主题活动策划，并整合媒介资源等。并根据公司销售策略，建立维护公司的销售网络与销售管理体系，通过系列市场推广活动，营造市场环境，提升公司与产品品牌，支撑公司产品销售的增长。</p>
+                        <p>9、及时了解相关法律、法规和及国家宏观调控政策，并根据项目实际情况制定对策。</p>
+                        <p>10、负责充电桩整体解决方案完成政府、企事业、公共事业单位销售洽谈。</p>
+                        <p>11、负责项目营销队伍建设及营销团队全面管理工作。</p>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1、本科及以上学历，有新能源充电桩销售经验5年以上。</p>
+                        <p>2. 对充电桩行业非常熟悉，熟知行业内部运作模式；能够进行大型项目独立招投标工作。</p>
+                        <p>3、有行业资源或政府资源者优先考虑。</p>
+                        <p>4、思维敏锐，善于沟通，具备出色的公关能力和计划、组织、协调能力，较强的承压能力。</p>
+                        <p>5、具有独立的客户开拓、公关、项目谈判能力及一定的策划能力。</p>
+                        <p>6、对工作有热情、抗压力能力强、认真负责。</p>
+                    </li>
+                    <li class="am-u-lg-12 am-u-sm-12 am-u-md-12">
+                        <p class="recruit-p">销售经理</p>
+                        <p class="span-right">本科/1-3年经验/上海-杨浦区/薪资6K-8K</p>
+                        <p class="recruit-span">职位描述：</p>
+                        <p>1.负责公司的充电桩产品区域市场开拓、了解市场动态、根据部门总体市场策略拟定区域年、季度销售计划，市场开拓计划，回款计划，并按照计划执行，确保任务完成。</p>
+                        <p>2.执行被批准的或上级下达的市场开发计划，定期做出市场开发报告。</p>
+                        <p>3.管理开发客户，拓展与开发新老客户业务。</p>
+                        <p>4.负责订单应收款回收工作。</p>
+                        <p>5.积极主动与客户保持良好沟通，解决客户需求，实现签单，并提高客户满意度。</p>
+                        <P>6.参与收集竞争对手资料，包括：竞争对手的产品、价格、优缺点、销售模式、支持的领导、企业规模、销售人员的能力等，并定期报告。参与收集行业产品、服务最新动态，参与产品改善建议的分析。</P>
+                        <p>7.负责客户咨询、客户投诉处理及售后监督工作。</p>
+                        <p class="recruit-span">职位要求：</p>
+                        <p>1.专科及以上学历，有新能源行业相关知识和1-2年从业经验，熟悉充电桩销售业务，有一定的客户资源，愿意在此行业长期发展的有志之士。</p>
+                        <p>2.具有较强的市场开拓能力，成熟的谈判能力以及独立的分析和解决问题的能力。</p>
+                        <p>3.工作认真、吃苦耐劳、责任心强，有较强的学习能力、良好的客户服务意识和良好的团队合作精神。</p>
+                        <p>4.具有敏锐的市场眼光和良好的职业操守，有明确的个人职业规划。</p>
+                        <p>5.表达能力强，具有较强的沟通能力及交际技巧，具有亲和力。</p>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+                <div id='page_navigation' class="col-md-8 col-md-offset-2"><div class="clear"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        //每页显示的数目
+        var show_per_page = 3;
+        //获取content对象里面，数据的数量
+        var number_of_items = $('#content').children().size();
+        //计算页面显示的数量
+        var number_of_pages = Math.ceil(number_of_items/show_per_page);
+        //隐藏域默认值
+        $('#current_page').val(0);
+        $('#show_per_page').val(show_per_page);
+        var navigation_html = '<a class="previous_link" href="javascript:previous();">上一页</a>';
+        var current_link = 0;
+        while(number_of_pages > current_link){
+            navigation_html += '<a class="page_link" href="javascript:go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';
+            current_link++;
+        }
+        navigation_html += '<a class="next_link" href="javascript:next();">下一页</a>';
+        $('#page_navigation').html(navigation_html);
+        //add active_page class to the first page link
+        $('#page_navigation .page_link:first').addClass('active_page');
+        //隐藏该对象下面的所有子元素
+        $('#content').children().css('display', 'none');
+        //显示第n（show_per_page）元素
+        $('#content').children().slice(0, show_per_page).css('display', 'block');
+    });
+    //上一页
+    function previous(){
+        new_page = parseInt($('#current_page').val()) - 1;
+        //if there is an item before the current active link run the function
+        if($('.active_page').prev('.page_link').length==true){
+            go_to_page(new_page);
+        }
+    }
+    //下一页
+    function next(){
+        new_page = parseInt($('#current_page').val()) + 1;
+        //if there is an item after the current active link run the function
+        if($('.active_page').next('.page_link').length==true){
+            go_to_page(new_page);
+        }
+    }
+    //跳转某一页
+    function go_to_page(page_num){
+        //get the number of items shown per page
+        var show_per_page = parseInt($('#show_per_page').val());
+        //get the element number where to start the slice from
+        start_from = page_num * show_per_page;
+        //get the element number where to end the slice
+        end_on = start_from + show_per_page;
+        //hide all children elements of content div, get specific items and show them
+        $('#content').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
+        /*get the page link that has longdesc attribute of the current page and add active_page class to it
+         and remove that class from previously active page link*/
+        $('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');
+        //update the current page input field
+        $('#current_page').val(page_num);
+    }
+</script>
+
+<!--联系我们-->
+<div class="am-container-1">
+    <div class="part-title">
+        <a name="about-5">
+            <span class="part-title-span">联系我们</span>
+            <p>Contact Us</p>
+        </a>
+    </div>
+    <div class="solutions part-all Contact">
+        <ul class="am-g part-content solutions-content">
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_position.png" alt="">
+                </div>
+                <div class="solution-word first-solution-word">
+                    <span class="">公司地址</span>
+                    <p class="us-way">上海市杨浦区国权北路湾谷科技园B7号楼</p>
+                </div>
+            </li>
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_email.png" alt="">
+                </div>
+                <div class="solution-word">
+                    <span class="">公司邮箱</span>
+                    <p class="us-way">info@kakuka.com.cn </p>
+                </div>
+            </li>
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_call.png" alt="">
+                </div>
+                <div class="solution-word solution-word-three">
+                    <span class="">公司电话</span>
+                    <p class="us-way">021-6048 3977</p>
+                </div>
+            </li>
+            <li class="am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class=" solution-circle white">
+                    <img src="img/icon_code.png" alt="">
+                </div>
+                <div class="solution-word">
+                    <span class="">公司邮编</span>
+                    <p class="us-way">200434</p>
+                </div>
+            </li>
+        </ul>
+        <div class="contact-footer">
+            <div class="contact-footer-first">
+                <span><i></i>第一时间接听您的来电<i></i></span>
+
+            </div>
+            <p class="">认真、耐心、专业的咔酷咔团队为您解决问题！</p>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="am-container-1">
+        <ul class="am-fl am-u-lg-6 am-u-md-12 am-u-sm-12">
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div class="part-5-title">产品介绍</div>
+                <div class="part-5-words2">
+                    <span><a href="product-details1.html">智能交流壁挂式</a></span>
+                    <span><a href="product-details2.html">智能交流落地式</a></span>
+                    <span><a href="product-details3.html">智能便携式充电机</a></span>
+                    <span><a href="product-details4.html">智能直流充电桩</a></span>
+                    <span><a href="product-show.html#product-1">无线充电</a></span>
+                    <span><a href="product-show.html#product-2">云平台</a></span>
+                </div>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div class="part-5-title">解决方案</div>
+                <div class="part-5-words2">
+                    <span><a href="solutions.html#solutions-1">物流园运营</a></span>
+                    <span><a href="solutions.html#solutions-2">交通系统</a></span>
+                    <span><a href="solutions.html#solutions-3">停车场配套</a></span>
+                    <span><a href="solutions.html#solutions-4">新能源汽车配套</a></span>
+                    <span><a href="solutions.html#solutions-5">城市级解决方案</a></span>
+                    <span><a href="solutions.html#solutions-6">立体车库智能充电</a></span>
+                </div>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div class="part-5-title">关于我们</div>
+                <div class="part-5-words2">
+                    <span><a href="about-us.html#about-1">公司介绍</a></span>
+                    <!--<span><a href="about-us.html#about-2">发展历程</a></span>-->
+                    <span><a href="about-us.html#about-3">公司动态</a></span>
+                    <!--<span><a href="about-us.html#about-4">团队介绍</a></span>-->
+                    <span><a href="about-us.html#about-5">联系方式</a></span>
+                </div>
+            </li>
+        </ul>
+        <ul class="erweima am-fr am-u-lg-6 am-u-md-12 am-u-sm-12">
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div>
+                    <img src="img/zhifubao.jpg" alt="">
+                </div>
+                <span class="erweima-title">支付宝小程序</span>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div>
+                    <img src="img/weixin.jpg" alt="">
+                </div>
+                <span class="erweima-title">微信公众号</span>
+            </li>
+            <li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+                <div>
+                    <img src="img/xiaochengxu.jpg" alt="">
+                </div>
+                <span class="erweima-title">微信小程序</span>
+            </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="footer-f">Copright © 2016-2018 咔酷咔新能源 - 版权所有 沪ICP备16030588号</div>
+    </div>
+</footer>
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+    <a href="#top" title="" style="color: #000;">
+        <!--<i class="am-gotop-icon am-icon-arrow-circle-up"></i>-->
+        <!--<img class="am-gotop-icon-custom" src="img/top.png" />-->
+        <div class="am-gotop-icon-custom">
+            <div></div>
+        </div>
+        <p>回到顶部</p>
+    </a>
+</div>
+</body>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/scroll.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>
